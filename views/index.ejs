@@ -4,13 +4,14 @@
     <% messages.forEach((message) => { %>
     
     <li>
-       <p>  <%= message.user %></p> 
-       <p><%= message.text %></p> 
-        <p> <%= message.added %></p> 
+       <p> User: <%= message.user %></p> 
+       <p> Message:  <%= message.text %></p> 
+        <p> Time: <%= message.added %></p> 
 
     </li>
    <% }) %>
 
 
+    <a href="/new">Add a New Message</a>
 
 </ul>
