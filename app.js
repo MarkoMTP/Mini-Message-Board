@@ -11,7 +11,7 @@ app.use("/", indexRouter);
 
 app.use("/new", newRouter);
 
-const PORT = 4000;
+const PORT = 8000;
 app.listen(PORT, () => {
   console.log("My first Express App on port  " + `${PORT}`);
 });
