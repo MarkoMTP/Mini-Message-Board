@@ -1,29 +1,21 @@
 const { Router } = require("express");
 const indexRouter = Router();
+const db = require("../db/queries");
 
-const messages = [
-  {
-    id: 1,
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    id: 2,
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
+indexRouter.get("/", async (req, res) => {
+  try {
+    const result = await db.getAllMessages();
 
-indexRouter.get("/", (req, res) => {
-  res.render("index", { messages: messages });
+    res.render("index", { messages: result }); // Pass only the 'rows' to the view
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching messages from the database");
+  }
 });
 
-indexRouter.get("/messages/:id", (req, res) => {
+indexRouter.get("/messages/:id", async (req, res) => {
   const messageId = parseInt(req.params.id);
-  const message = messages.find((msg) => msg.id === messageId);
-
+  const message = await db.findMsg(messageId);
   if (message) {
     res.render("messageDetails", { message: message });
   } else {
@@ -31,17 +23,12 @@ indexRouter.get("/messages/:id", (req, res) => {
   }
 });
 
-indexRouter.post("/new", (req, res) => {
+indexRouter.post("/new", async (req, res) => {
   const messageText = req.body.messageText;
-  const userName = req.body.user;
-  const latestId = messages[messages.length - 1].id;
+  const username = req.body.user;
 
-  messages.push({
-    id: latestId + 1,
-    text: messageText,
-    user: userName,
-    added: new Date(),
-  });
+  await db.addMessage(messageText, username);
+
   res.redirect("/");
 });
 
