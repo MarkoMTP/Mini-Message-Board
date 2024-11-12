@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const pool = require("./db/supabaseDb");
 app.set("view engine", "ejs");
 const path = require("node:path");
 const indexRouter = require("./routes/indexRouter");
@@ -11,7 +12,17 @@ app.use("/", indexRouter);
 
 app.use("/new", newRouter);
 
-const PORT = 8000;
+app.get("/test-db", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT NOW()");
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Database connection error");
+  }
+});
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log("My first Express App on port  " + `${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
