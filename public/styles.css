@@ -37,7 +37,7 @@ form {
   padding: 20px;
   margin: 20px auto;
   width: 80%;
-  max-width: 900px;
+
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -119,14 +119,10 @@ form {
 /* Mobile Responsive Styles using Media Queries */
 
 /* Adjustments for screens smaller than 768px */
-@media (max-width: 768px) {
+@media (max-width: 878px) {
   .messagesBox {
-    width: 90%; /* Make the container slightly wider on smaller screens */
-    padding: 15px; /* Reduce padding to save space */
-  }
-
-  .aMessage li {
-    padding: 10px; /* Reduce padding in individual messages */
+    width: 100%; /* Make the container slightly wider on smaller screens */
+    border: 0; /* Reduce padding to save space */
   }
 
   h1 {
@@ -141,23 +137,37 @@ form {
 }
 
 /* Adjustments for very small screens (mobile phones in portrait) */
+
 @media (max-width: 480px) {
   .messagesBox {
-    width: 95%; /* Make it nearly full-width */
-    padding: 10px; /* Further reduce padding */
+    width: 100%; /* Full width on mobile */
+    padding: 10px; /* Smaller padding */
+    border: none; /* Remove border for a cleaner look */
+    box-shadow: none; /* Remove shadow on mobile */
   }
 
   .aMessage li {
-    padding: 8px; /* Further reduce padding in individual messages */
+    border: none; /* Remove individual message borders */
+    padding: 15px; /* Increase padding for easier touch access */
+    margin: 10px 0; /* Space out each message */
+    font-size: 1.1rem; /* Increase font size for better readability */
   }
 
-  h1 {
-    font-size: 1.2rem; /* Further reduce header font size */
+  .aMessage li p {
+    font-size: 1.2rem; /* Larger text size for message content */
   }
 
   .aMessage li a,
   .aMessage li form button {
-    padding: 8px 10px; /* Further reduce padding in buttons and links */
-    font-size: 0.9rem; /* Reduce font size for links and buttons */
+    padding: 10px 14px; /* Increase padding in buttons */
+    font-size: 1rem; /* Slightly larger font size */
+    margin: 5px 0; /* Space out buttons and links */
   }
+
+  h1 {
+    font-size: 1.8rem; /* Adjust heading size */
+    margin-top: 15px;
+  }
+
+  /* Hide unnecessary details or elements for a cleaner mobile interface if needed */
 }
