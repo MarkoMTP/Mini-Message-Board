@@ -1,0 +1,163 @@
+/* public/styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* General Styles for all screen sizes */
+h1 {
+  color: #5a5a5a;
+  text-align: center; /* Centers the header */
+  margin: 20px 0;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+form {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.messagesBox {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 900px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Ensures padding is included in the element's total width */
+}
+
+.newMessage {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #07ff4d;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+/* Styling for individual messages */
+.aMessage {
+  list-style-type: none;
+  padding: 0;
+}
+
+.aMessage li {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.aMessage li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.aMessage li p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.aMessage li a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.aMessage li a:hover {
+  background-color: #0056b3;
+}
+
+.aMessage li form {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.aMessage li form button {
+  padding: 8px 15px;
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.aMessage li form button:hover {
+  background-color: #c82333;
+}
+
+/* Mobile Responsive Styles using Media Queries */
+
+/* Adjustments for screens smaller than 768px */
+@media (max-width: 768px) {
+  .messagesBox {
+    width: 90%; /* Make the container slightly wider on smaller screens */
+    padding: 15px; /* Reduce padding to save space */
+  }
+
+  .aMessage li {
+    padding: 10px; /* Reduce padding in individual messages */
+  }
+
+  h1 {
+    font-size: 1.5rem; /* Adjust the font size for small screens */
+    margin-top: 10px;
+  }
+
+  .aMessage li a,
+  .aMessage li form button {
+    padding: 10px 12px; /* Slightly larger padding on smaller screens for better touch targets */
+  }
+}
+
+/* Adjustments for very small screens (mobile phones in portrait) */
+@media (max-width: 480px) {
+  .messagesBox {
+    width: 95%; /* Make it nearly full-width */
+    padding: 10px; /* Further reduce padding */
+  }
+
+  .aMessage li {
+    padding: 8px; /* Further reduce padding in individual messages */
+  }
+
+  h1 {
+    font-size: 1.2rem; /* Further reduce header font size */
+  }
+
+  .aMessage li a,
+  .aMessage li form button {
+    padding: 8px 10px; /* Further reduce padding in buttons and links */
+    font-size: 0.9rem; /* Reduce font size for links and buttons */
+  }
+}

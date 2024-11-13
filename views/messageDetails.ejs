@@ -1,7 +1,15 @@
-<h1>Message Details</h1>
-<p><strong>User:</strong> <%= message.username %></p>
-<p><strong>Message:</strong> <%= message.text %></p>
-<p><strong>Added on:</strong> <%= message.added %></p>
+<head>
+  <title>Message Board</title>
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="/messageDet.css" />
+</head>
 
-<!-- Add a link to go back to the messages list -->
-<a href="/">Back to Messages</a>
+<div class="messageDetailsBox">
+  <h1>Message Details</h1>
+  <p><strong>User:</strong> <%= message.username %></p>
+  <p><strong>Message:</strong> <%= message.text %></p>
+  <p><strong>Added on:</strong> <%= message.added %></p>
+
+  <!-- Add a link to go back to the messages list -->
+  <a href="/" class="backLink">Back to Messages</a>
+</div>

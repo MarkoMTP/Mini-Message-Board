@@ -1,13 +1,21 @@
-<form method="POST" action="/new">
-  <label for="user">User:</label>
-  <input type="text" id="user" name="user" required />
+<head>
+  <title>New Message</title>
+  <link rel="stylesheet" href="/formStyle.css" />
+</head>
 
-  <br /><br />
+<div class="formContainer">
+  <h1>New Task</h1>
+  <form method="POST" action="/new">
+    <div class="formGroup">
+      <label for="user">Name:</label>
+      <input type="text" id="user" name="user" required />
+    </div>
 
-  <label for="message">Message:</label>
-  <input type="text" id="message" name="messageText" required />
+    <div class="formGroup">
+      <label for="message">Task Details:</label>
+      <input type="text" id="message" name="messageText" required />
+    </div>
 
-  <br /><br />
-
-  <button type="submit">Submit</button>
-</form>
+    <button type="submit">Submit</button>
+  </form>
+</div>

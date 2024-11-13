@@ -1,14 +1,23 @@
-<h1> Messages </h1>
+<head>
+    <title>Message Board</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="/styles.css">
+  </head>
 
-<ul>
+<h1> To-Do List App</h1>
+<div class="messagesBox">
+<ul class="aMessage">
     <% messages.forEach((message) => { %>
     
     <li>
        
-       <p> Message:  <%= message.text %></p> 
+       <p> Name:  <%= message.username %></p> 
 
         <a href="/messages/<%= message.id %>">Message Details</a>
 
+        <form action="/messages/<%= message.id %>/delete" method="POST">
+            <button type="submit">Delete Task</button>
+          </form>
     </li>
    <% }) %>
 
@@ -18,6 +27,8 @@
    <br>
 
    <br>
-    <a href="/new">Add a New Message</a>
+    <a href="/new" class="newMessage">Add a New Message</a>
 
 </ul>
+
+</div>

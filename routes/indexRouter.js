@@ -32,4 +32,16 @@ indexRouter.post("/new", async (req, res) => {
   res.redirect("/");
 });
 
+indexRouter.post("/messages/:id/delete", async (req, res) => {
+  const messageId = parseInt(req.params.id);
+
+  try {
+    await db.deleteMsg(messageId);
+    res.redirect("/");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error deleting message");
+  }
+});
+
 module.exports = indexRouter;
